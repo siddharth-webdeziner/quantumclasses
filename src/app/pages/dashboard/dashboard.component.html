@@ -1,0 +1,100 @@
+<div class="dashboard">
+  <div class="container">
+    <!-- Header -->
+    <div class="dash-header">
+      <div>
+        <h2 class="dash-greeting">Welcome back, Student! 👋</h2>
+        <p class="dash-sub">Continue your learning journey</p>
+      </div>
+      <button class="btn-primary" routerLink="/courses">
+        <i class="fas fa-plus"></i> Browse More Courses
+      </button>
+    </div>
+
+    <div class="dash-layout">
+      <!-- Sidebar -->
+      <aside class="dash-sidebar">
+        <div class="sidebar-user">
+          <div class="user-avatar-lg">S</div>
+          <div class="user-info">
+            <div class="user-name">Student</div>
+            <div class="user-role">JEE Aspirant 2025</div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          @for (item of navItems; track item.key) {
+            <div class="nav-item" [class.active]="activeNav===item.key"
+              (click)="activeNav=item.key; toast.show('Opening ' + item.label + '...')">
+              <i class="fas" [class]="item.icon"></i>
+              {{ item.label }}
+            </div>
+          }
+          <div class="nav-item nav-logout" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="dash-main">
+        <!-- Stats -->
+        <div class="stats-grid">
+          @for (stat of stats; track stat.label) {
+            <div class="stat-card">
+              <div class="sc-icon" [class]="stat.bg">
+                <i class="fas" [class]="stat.icon + ' ' + stat.iconColor"></i>
+              </div>
+              <div class="sc-val">{{ stat.val }}</div>
+              <div class="sc-label">{{ stat.label }}</div>
+            </div>
+          }
+        </div>
+
+        <!-- Enrolled Courses -->
+        <div class="dash-card">
+          <h3 class="dash-card-title">📚 Continue Learning</h3>
+          <div class="enrolled-list">
+            @for (course of enrolled; track course.title) {
+              <div class="enrolled-item">
+                <div class="ei-icon" [class]="course.iconBg">{{ course.icon }}</div>
+                <div class="ei-info">
+                  <div class="ei-title">{{ course.title }}</div>
+                  <div class="ei-progress">{{ course.progress }} · Chapter: {{ course.chapter }}</div>
+                  <div class="progress-bar">
+                    <div class="progress-fill" [style.width.%]="course.percent"></div>
+                  </div>
+                </div>
+                <div class="ei-right">
+                  <div class="ei-percent">{{ course.percent }}%</div>
+                  <button class="btn-continue" (click)="toast.show('Opening ' + course.title + '...')">
+                    Continue <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Upcoming Live Classes -->
+        <div class="dash-card">
+          <h3 class="dash-card-title">📅 Upcoming Live Classes</h3>
+          <div class="upcoming-list">
+            @for (cls of upcomingClasses; track cls.title) {
+              <div class="upcoming-item">
+                <div class="ui-icon" [class]="cls.bg">{{ cls.icon }}</div>
+                <div class="ui-info">
+                  <div class="ui-title">{{ cls.title }}</div>
+                  <div class="ui-meta">{{ cls.time }} · {{ cls.teacher }}</div>
+                </div>
+                <button class="btn-primary" style="font-size:.78rem;padding:7px 14px"
+                  (click)="toast.show('Reminder set for: ' + cls.title)">
+                  <i class="fas fa-bell"></i> Remind Me
+                </button>
+              </div>
+            }
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

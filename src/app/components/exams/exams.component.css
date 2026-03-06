@@ -1,0 +1,12 @@
+.exams-section { background: var(--dark); padding: 100px 0; }
+.exams-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 18px; }
+.exam-card {
+  background: var(--dark3); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 20px; text-align: center;
+  cursor: pointer; transition: all .3s; text-decoration: none; display: block;
+}
+.exam-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+.exam-icon { font-size: 2.4rem; margin-bottom: 12px; }
+.exam-name { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+.exam-count { font-size: .78rem; color: var(--text3); }
+@media (max-width: 600px) { .exams-grid { grid-template-columns: repeat(2, 1fr); } }

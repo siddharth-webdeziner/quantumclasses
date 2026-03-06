@@ -1,0 +1,25 @@
+<section class="teachers-section" id="teachers">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Top Educators</span>
+      <h2 class="section-title">Learn From the Best Minds in India</h2>
+      <p class="section-desc">Our educators are IITians, doctors, civil servants, and subject experts with proven track records.</p>
+    </div>
+    <div class="teachers-grid">
+      @for (t of teachers; track t.name) {
+        <div class="teacher-card" (click)="toast.show('Viewing ' + t.name + '\'s profile')">
+          <div class="teacher-avatar" [style.background]="t.avatarBg">{{ t.avatar }}</div>
+          <div class="teacher-name">{{ t.name }}</div>
+          <div class="teacher-subject">{{ t.subject }}</div>
+          <div class="stars">
+            @for (s of starsArray; track $index) { ★ }
+          </div>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><strong>{{ t.students }}</strong>Students</div>
+            <div class="teacher-stat"><strong>{{ t.qualification }}</strong></div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

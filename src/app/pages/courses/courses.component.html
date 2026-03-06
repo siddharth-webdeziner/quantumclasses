@@ -1,0 +1,56 @@
+<div class="courses-page">
+  <div class="page-header">
+    <div class="container">
+      <span class="section-label">All Courses</span>
+      <h1 class="section-title">Find Your Perfect Course</h1>
+      <p class="section-desc">Browse {{ allCourses.length }}+ courses across all competitive exams and subjects</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Search -->
+    <div class="search-wrap">
+      <div class="search-bar">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search courses, subjects, teachers..."
+          [value]="searchQuery()"
+          (input)="searchQuery.set($any($event.target).value)">
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-row">
+      @for (cat of categories; track cat.key) {
+        <button class="filter-tab" [class.active]="activeCategory()===cat.key"
+          (click)="setCategory(cat.key)">
+          {{ cat.label }}
+        </button>
+      }
+    </div>
+
+    <!-- Results Info -->
+    <div class="results-info">
+      <span>{{ filteredCourses().length }} courses found</span>
+    </div>
+
+    <!-- Grid -->
+    @if (filteredCourses().length > 0) {
+      <div class="courses-grid">
+        @for (course of filteredCourses(); track course.id) {
+          <app-course-card [course]="course" (enroll)="enroll($event)" />
+        }
+      </div>
+    } @else {
+      <div class="no-results">
+        <div class="no-icon">🔍</div>
+        <h3>No courses found</h3>
+        <p>Try adjusting your search or filters</p>
+        <button class="btn-primary" (click)="searchQuery.set(''); activeCategory.set('all')">
+          Clear Filters
+        </button>
+      </div>
+    }
+  </div>
+
+  <app-footer />
+</div>

@@ -1,0 +1,38 @@
+<!-- Announcement Banner -->
+<div class="banner" *ngIf="showBanner">
+  🎉 JEE Mains 2025 Results are out!
+  <a (click)="toast.show('Redirecting to results...')"> Check your score now →</a>
+  <button class="banner-close" (click)="showBanner=false"><i class="fas fa-times"></i></button>
+</div>
+
+<nav [class.scrolled]="scrolled()">
+  <a class="nav-logo" routerLink="/" (click)="closeMobile()">
+    <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+    Edu<span>Verse</span>
+  </a>
+
+  <div class="nav-links" [class.mobile-open]="mobileOpen()">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMobile()">Home</a>
+    <a routerLink="/courses" routerLinkActive="active" (click)="closeMobile()">Courses</a>
+    <a href="#teachers" (click)="closeMobile()">Teachers</a>
+    <a href="#exams" (click)="closeMobile()">Exams</a>
+    <a href="#app" (click)="closeMobile()">App</a>
+    @if (auth.isLoggedIn()) {
+      <a routerLink="/dashboard" routerLinkActive="active" (click)="closeMobile()">Dashboard</a>
+    }
+  </div>
+
+  <div class="nav-right">
+    @if (!auth.isLoggedIn()) {
+      <button class="btn-outline" (click)="openLogin()">Sign In</button>
+      <button class="btn-primary" (click)="openSignup()">Get Started Free</button>
+    } @else {
+      <div class="user-avatar">S</div>
+      <button class="btn-outline" (click)="logout()">Logout</button>
+    }
+  </div>
+
+  <button class="hamburger" (click)="toggleMobile()">
+    <i class="fas" [class.fa-bars]="!mobileOpen()" [class.fa-times]="mobileOpen()"></i>
+  </button>
+</nav>

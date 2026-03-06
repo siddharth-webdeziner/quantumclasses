@@ -1,0 +1,24 @@
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label">Success Stories</span>
+      <h2 class="section-title">Students Who Changed Their Lives</h2>
+      <p class="section-desc">Real stories from students who cracked top exams using EduVerse</p>
+    </div>
+    <div class="grid">
+      @for (t of testimonials; track t.author) {
+        <div class="card">
+          <div class="quote">"</div>
+          <p class="text">{{ t.text }}</p>
+          <div class="author">
+            <div class="avatar" [style.background]="t.avatarBg">{{ t.avatar }}</div>
+            <div>
+              <div class="name">{{ t.author }}</div>
+              <div class="info">{{ t.info }}</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

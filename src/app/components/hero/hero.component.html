@@ -1,0 +1,72 @@
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content container">
+
+    <!-- Left: Copy -->
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        India's #1 EdTech Platform
+      </div>
+      <h1 class="hero-title">
+        Learn From<br>
+        India's <span class="highlight">Best Teachers</span><br>
+        &amp; Crack Any Exam
+      </h1>
+      <p class="hero-desc">
+        Join 2 crore+ students preparing for JEE, NEET, UPSC, SSC, and 100+ other
+        competitive exams with live classes, recorded videos, test series, and study materials.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-hero primary" (click)="auth.openModal('signup')">
+          <i class="fas fa-rocket"></i> Start Learning Free
+        </button>
+        <button class="btn-hero secondary" (click)="toast.show('Opening demo class...')">
+          <i class="fas fa-play-circle"></i> Watch Demo
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">2<span>Cr+</span></div><div class="stat-label">Students</div></div>
+        <div class="stat"><div class="stat-num">500<span>+</span></div><div class="stat-label">Educators</div></div>
+        <div class="stat"><div class="stat-num">1000<span>+</span></div><div class="stat-label">Courses</div></div>
+        <div class="stat"><div class="stat-num">98<span>%</span></div><div class="stat-label">Success Rate</div></div>
+      </div>
+    </div>
+
+    <!-- Right: Live Classes Card -->
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hero-main-card">
+          <div class="card-header">
+            <h3>🔴 Live Classes Today</h3>
+            <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+          </div>
+          <div class="card-body">
+            @for (cls of liveClasses; track cls.title) {
+              <div class="live-item" (click)="toast.show('Joining: ' + cls.title)">
+                <div class="li-icon" [class]="cls.iconBg">{{ cls.icon }}</div>
+                <div class="li-info">
+                  <div class="li-title">{{ cls.title }}</div>
+                  <div class="li-sub">{{ cls.sub }}</div>
+                </div>
+                <span class="li-tag" [class]="cls.tagBg + ' ' + cls.tagColor">{{ cls.tag }}</span>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="float-card fc-top">
+          <div class="fc-icon"><i class="fas fa-trophy"></i></div>
+          <div>
+            <div class="fc-num">12,400+</div>
+            <div class="fc-label">Selections This Year</div>
+          </div>
+        </div>
+        <div class="float-card fc-bottom">
+          <div class="fc-num" style="color:var(--accent2)">4.8 ⭐</div>
+          <div class="fc-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

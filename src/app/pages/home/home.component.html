@@ -1,0 +1,25 @@
+<app-hero />
+<app-marquee />
+<app-exams />
+<app-features />
+<app-teachers />
+<app-testimonials />
+<app-download />
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">Ready to Start Your Journey?</h2>
+    <p class="cta-desc">Join 2 crore+ students who are already preparing smarter. Get started for free today.</p>
+    <div class="cta-actions">
+      <button class="btn-hero primary" (click)="auth.openModal('signup')">
+        <i class="fas fa-rocket"></i> Sign Up for Free
+      </button>
+      <button class="btn-hero secondary" routerLink="/courses">
+        <i class="fas fa-search"></i> Explore Courses
+      </button>
+    </div>
+  </div>
+</section>
+
+<app-footer />

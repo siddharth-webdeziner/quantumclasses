@@ -1,0 +1,34 @@
+<div class="course-card">
+  <div class="course-thumb" [style.background]="course.thumbBg">
+    <span class="thumb-icon">{{ course.thumb }}</span>
+    <div class="thumb-overlay"></div>
+    <span class="course-badge"
+      [style.background]="course.badgeColor"
+      [style.color]="badgeTextColor">
+      {{ course.badge }}
+    </span>
+  </div>
+  <div class="course-body">
+    <div class="course-meta">
+      <span><i class="fas fa-clock"></i> {{ course.duration }}</span>
+      <span><i class="fas fa-play-circle"></i> {{ course.lectures }} lectures</span>
+      <span><i class="fas fa-users"></i> {{ course.students }}</span>
+    </div>
+    <h3 class="course-title">{{ course.title }}</h3>
+    <p class="course-instructor">By <strong>{{ course.instructor }}</strong></p>
+    <div class="stars">
+      @for (s of starsArray; track $index) { ★ }
+      @for (s of emptyStars; track $index) { <span class="empty">☆</span> }
+      <span class="rating-val">{{ course.rating }}</span>
+    </div>
+    <div class="course-footer">
+      <div class="course-price">
+        <span class="original">₹{{ course.original.toLocaleString() }}</span>
+        <span [class.free]="course.free">{{ priceDisplay }}</span>
+      </div>
+      <button class="btn-enroll" (click)="enroll.emit(course); $event.stopPropagation()">
+        Enroll Now
+      </button>
+    </div>
+  </div>
+</div>

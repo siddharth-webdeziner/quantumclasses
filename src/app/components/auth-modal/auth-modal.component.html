@@ -1,0 +1,56 @@
+@if (auth.showModal()) {
+  <div class="modal-overlay" (click)="auth.closeModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="auth.closeModal()"><i class="fas fa-times"></i></button>
+
+      <div class="modal-top">
+        <div class="modal-logo"><i class="fas fa-graduation-cap"></i></div>
+        <h2>Welcome to EduVerse</h2>
+        <p>Start your exam preparation journey today</p>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="modal-tab" [class.active]="auth.activeTab()==='login'" (click)="auth.activeTab.set('login')">Sign In</button>
+        <button class="modal-tab" [class.active]="auth.activeTab()==='signup'" (click)="auth.activeTab.set('signup')">Sign Up</button>
+      </div>
+
+      @if (auth.activeTab() === 'login') {
+        <div class="form-body">
+          <div class="form-group">
+            <label>Mobile Number / Email</label>
+            <input type="text" [(ngModel)]="email" placeholder="Enter your mobile or email">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" [(ngModel)]="password" placeholder="Enter your password">
+          </div>
+          <button class="btn-submit" (click)="submit()"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+          <div class="divider"><span>or</span></div>
+          <button class="btn-google" (click)="submit()"><i class="fab fa-google"></i> Continue with Google</button>
+        </div>
+      }
+
+      @if (auth.activeTab() === 'signup') {
+        <div class="form-body">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" [(ngModel)]="name" placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" [(ngModel)]="phone" placeholder="10-digit mobile number">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" [(ngModel)]="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label>Create Password</label>
+            <input type="password" [(ngModel)]="password" placeholder="Minimum 8 characters">
+          </div>
+          <button class="btn-submit" (click)="submit()"><i class="fas fa-rocket"></i> Create Free Account</button>
+        </div>
+      }
+    </div>
+  </div>
+}

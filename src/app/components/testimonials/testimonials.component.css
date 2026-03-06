@@ -1,0 +1,10 @@
+.testimonials-section { background: var(--dark2); padding: 100px 0; }
+.grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.card { background: var(--dark3); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+.quote { font-size: 2.4rem; color: var(--primary); opacity: .3; line-height: 1; margin-bottom: 14px; }
+.text { font-size: .92rem; color: var(--text2); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+.author { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+.name { font-size: .9rem; font-weight: 700; }
+.info { font-size: .75rem; color: var(--text3); margin-top: 2px; }
+@media(max-width:900px){.grid{grid-template-columns:1fr}}

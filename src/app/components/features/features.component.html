@@ -1,0 +1,20 @@
+<section class="features-section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label">Why EduVerse?</span>
+      <h2 class="section-title">Everything You Need to Succeed</h2>
+      <p class="section-desc">A complete learning ecosystem designed for competitive exam success</p>
+    </div>
+    <div class="features-grid">
+      @for (f of features; track f.title) {
+        <div class="feature-card">
+          <div class="feature-icon" [class]="f.iconBg">
+            <i class="fas" [class]="f.icon + ' ' + f.iconColor"></i>
+          </div>
+          <h3 class="feature-title">{{ f.title }}</h3>
+          <p class="feature-desc">{{ f.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
