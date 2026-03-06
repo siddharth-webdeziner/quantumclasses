@@ -1,0 +1,137 @@
+<div class="about-page">
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">About Quantum Classes</h1>
+        <p class="hero-desc">Empowering millions of students to excel in their board exams through world-class online education</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-card">
+            <div class="stat-value">{{ stat.value }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="section-header center">
+        <h2 class="section-title">Our Values & Purpose</h2>
+      </div>
+      <div class="values-grid">
+        @for (val of values; track val.title) {
+          <div class="value-card">
+            <div class="value-icon">{{ val.icon }}</div>
+            <h3 class="value-title">{{ val.title }}</h3>
+            <p class="value-desc">{{ val.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-content">
+        <div class="story-text">
+          <h2 class="section-title">Our Story</h2>
+          <p>Quantum Classes was born from a simple belief: quality education should be accessible to every student, regardless of their location or financial background.</p>
+          <p>Recognizing the gap between aspirations and quality education, our founders came together with a mission to create a platform that combines expert teaching with the power of technology. Today, we're proud to support millions of students in achieving their academic goals.</p>
+          <p>Our commitment to excellence extends beyond just delivering content. We focus on personalized learning, interactive live classes, and comprehensive study materials that cater to the specific needs of each student.</p>
+        </div>
+        <div class="story-visual">
+          <div class="story-image">📚</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <div class="container">
+      <h2 class="section-title center">Our Journey</h2>
+      <div class="timeline">
+        @for (item of timeline; track item.year) {
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">{{ item.year }}</div>
+            </div>
+            <div class="timeline-content">
+              <p>{{ item.event }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-section">
+    <div class="container">
+      <h2 class="section-title center">Why Choose Quantum Classes?</h2>
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-icon">👨‍🏫</div>
+          <h3>Expert Teachers</h3>
+          <p>Learn from the most experienced and qualified educators in the country with proven track records</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">💻</div>
+          <h3>Advanced Technology</h3>
+          <p>Interactive live classes, AI-powered analytics, and offline learning capabilities for your convenience</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">📊</div>
+          <h3>Proven Results</h3>
+          <p>95% pass rate among our students with thousands achieving top grades in board exams</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">💰</div>
+          <h3>Affordable Learning</h3>
+          <p>High-quality education at prices that fit every student's budget with multiple payment options</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">🎯</div>
+          <h3>Personalized Approach</h3>
+          <p>Tailored learning paths based on individual strengths and weaknesses for maximum improvement</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">🌍</div>
+          <h3>Global Reach, Local Touch</h3>
+          <p>Support for multiple boards (CBSE, ICSE, State) with content designed for your specific curriculum</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Ready to Join Our Community?</h2>
+      <p class="cta-desc">Start your journey to academic excellence with Quantum Classes today</p>
+      <div class="cta-actions">
+        <button class="btn-hero primary" (click)="auth.openModal('signup')">
+          <i class="fas fa-rocket"></i> Sign Up for Free
+        </button>
+        <button class="btn-hero secondary" routerLink="/courses">
+          <i class="fas fa-search"></i> Explore Courses
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <app-footer />
+</div>

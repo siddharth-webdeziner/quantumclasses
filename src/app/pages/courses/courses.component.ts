@@ -28,12 +28,8 @@ export class CoursesComponent {
 
   categories = [
     { key:'all', label:'All Courses' },
-    { key:'jee', label:'JEE' },
-    { key:'neet', label:'NEET' },
-    { key:'upsc', label:'UPSC' },
-    { key:'ssc', label:'SSC' },
-    { key:'bank', label:'Bank' },
     { key:'class12', label:'Class 12' },
+    { key:'class11', label:'Class 11' },
     { key:'class10', label:'Class 10' },
   ];
 

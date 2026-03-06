@@ -31,5 +31,5 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class MarqueeComponent {
-  items = ['JEE Main & Advanced','NEET UG','UPSC CSE','SSC CGL','CAT','GATE','Class 9–12','CUET','Bank PO','NDA/CDS','Defence Exams','CLAT'];
+  items = ['CBSE Board','ICSE Board','State Boards','Class 12 Science','Class 12 Commerce','Class 11','Class 10','Physics','Chemistry','Biology','Mathematics','English'];
 }
