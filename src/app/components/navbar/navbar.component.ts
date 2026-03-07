@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
+import { PdfViewerService } from '../../services/pdf-viewer.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,7 @@ import { ToastService } from '../../services/toast.service';
 export class NavbarComponent {
   auth = inject(AuthService);
   toast = inject(ToastService);
+  pdfService = inject(PdfViewerService);
   scrolled = signal(false);
   mobileOpen = signal(false);
   showBanner = true;
@@ -27,4 +29,9 @@ export class NavbarComponent {
   openLogin()  { this.auth.openModal('login');  this.closeMobile(); }
   openSignup() { this.auth.openModal('signup'); this.closeMobile(); }
   logout()     { this.auth.logout(); this.toast.show('Logged out successfully'); }
+
+  openPdf() {
+    this.pdfService.open('assets/scienceFiles/Quantum_Classes_30_1_3.pdf');
+    this.closeMobile();
+  }
 }

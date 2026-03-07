@@ -1,0 +1,22 @@
+@if (pdfService.isOpen()) {
+  <div class="pdf-modal-overlay" (click)="pdfService.close()">
+    <div class="pdf-modal" (click)="$event.stopPropagation()">
+      <div class="pdf-header">
+        <h2 class="pdf-title">PDF Viewer</h2>
+        <div class="pdf-actions">
+          <button class="pdf-btn download-btn" (click)="downloadPdf()" title="Download PDF">
+            <i class="fas fa-download"></i> Download
+          </button>
+          <button class="pdf-btn close-btn" (click)="pdfService.close()" title="Close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="pdf-content">
+        @if (safePdfUrl()) {
+          <iframe [src]="safePdfUrl()" class="pdf-iframe"></iframe>
+        }
+      </div>
+    </div>
+  </div>
+}

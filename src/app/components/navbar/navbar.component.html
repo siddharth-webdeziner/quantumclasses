@@ -17,6 +17,7 @@
     <a href="#teachers" (click)="closeMobile()">Teachers</a>
     <a href="#exams" (click)="closeMobile()">Exams</a>
     <a href="#app" (click)="closeMobile()">App</a>
+    <a href="javascript:void(0)" (click)="openPdf()" class="pdf-link"><i class="fas fa-file-pdf"></i> Resources</a>
     @if (auth.isLoggedIn()) {
       <a routerLink="/dashboard" routerLinkActive="active" (click)="closeMobile()">Dashboard</a>
     }
@@ -24,8 +25,8 @@
 
   <div class="nav-right">
     @if (!auth.isLoggedIn()) {
-      <button class="btn-outline" (click)="openLogin()">Sign In</button>
-      <button class="btn-primary" (click)="openSignup()">Get Started Free</button>
+      <!-- <button class="btn-outline" (click)="openLogin()">Sign In</button> -->
+      <!-- <button class="btn-primary" (click)="openSignup()">Get Started Free</button> -->
     } @else {
       <div class="user-avatar">S</div>
       <button class="btn-outline" (click)="logout()">Logout</button>
