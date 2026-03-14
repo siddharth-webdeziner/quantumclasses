@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HeroComponent } from '../../components/hero/hero.component';
+import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { MarqueeComponent } from '../../components/marquee/marquee.component';
 import { ExamsComponent } from '../../components/exams/exams.component';
 import { FeaturesComponent } from '../../components/features/features.component';
@@ -15,7 +16,7 @@ import { ToastService } from '../../services/toast.service';
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterLink, HeroComponent, MarqueeComponent, ExamsComponent,
+    RouterLink, HeroComponent, CarouselComponent, MarqueeComponent, ExamsComponent,
     FeaturesComponent, TeachersComponent, TestimonialsComponent,
     AppDownloadComponent, FooterComponent
   ],
