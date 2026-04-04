@@ -7,65 +7,69 @@
     <div class="hero-left">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        India's #1 EdTech Platform
+        Dehradun's
       </div>
       <h1 class="hero-title">
         Master Your Class 12<br>
-        with India's <span class="highlight">Best Teachers</span><br>
+        with Dehradun's <span class="highlight">Best Teachers</span><br>
         &amp; Score Excellence
       </h1>
       <p class="hero-desc">
-        Join 50 lakh+ class 12 students preparing for Board Exams with live classes, recorded videos, test series, and complete study materials for CBSE, ICSE, and State Boards.
+        Join class 12 students preparing for Board Exams with live classes, recorded videos, test series, and complete study materials for CBSE, ICSE, and State Boards.
       </p>
       <div class="hero-actions">
-        <button class="btn-hero primary" (click)="auth.openModal('signup')">
-          <i class="fas fa-rocket"></i> Start Learning Free
+        <button class="btn-hero primary" (click)="openEnrollModal()">
+          <i class="fas fa-rocket"></i> Start Learning
         </button>
-        <button class="btn-hero secondary" (click)="toast.show('Opening demo class...')">
+        <!-- <button class="btn-hero secondary" (click)="toast.show('Opening demo class...')">
           <i class="fas fa-play-circle"></i> Watch Demo
-        </button>
+        </button> -->
       </div>
-      <div class="hero-stats">
+      <!-- <div class="hero-stats">
         <div class="stat"><div class="stat-num">50<span>L+</span></div><div class="stat-label">Students</div></div>
         <div class="stat"><div class="stat-num">200<span>+</span></div><div class="stat-label">Teachers</div></div>
         <div class="stat"><div class="stat-num">500<span>+</span></div><div class="stat-label">Courses</div></div>
         <div class="stat"><div class="stat-num">95<span>%</span></div><div class="stat-label">Pass Rate</div></div>
-      </div>
+      </div> -->
     </div>
 
-    <!-- Right: Live Classes Card -->
+    <!-- Right: Hero Image -->
     <div class="hero-visual">
-      <div class="hero-card-stack">
-        <div class="hero-main-card">
-          <div class="card-header">
-            <h3>🔴 Live Classes Today</h3>
-            <div class="live-badge"><span class="live-dot"></span>LIVE</div>
-          </div>
-          <div class="card-body">
-            @for (cls of liveClasses; track cls.title) {
-              <div class="live-item" (click)="toast.show('Joining: ' + cls.title)">
-                <div class="li-icon" [class]="cls.iconBg">{{ cls.icon }}</div>
-                <div class="li-info">
-                  <div class="li-title">{{ cls.title }}</div>
-                  <div class="li-sub">{{ cls.sub }}</div>
-                </div>
-                <span class="li-tag" [class]="cls.tagBg + ' ' + cls.tagColor">{{ cls.tag }}</span>
-              </div>
-            }
-          </div>
-        </div>
-        <div class="float-card fc-top">
-          <div class="fc-icon"><i class="fas fa-trophy"></i></div>
-          <div>
-            <div class="fc-num">12,400+</div>
-            <div class="fc-label">Selections This Year</div>
-          </div>
-        </div>
-        <div class="float-card fc-bottom">
-          <div class="fc-num" style="color:var(--accent2)">4.8 ⭐</div>
-          <div class="fc-label">Average Rating</div>
-        </div>
+      <div class="hero-image-container">
+        <img src="assets/images/slide1.jpeg" alt="Quantum Classes Students Learning" class="hero-image">
       </div>
     </div>
   </div>
 </section>
+
+<!-- Enrollment Modal -->
+@if (showEnrollModal()) {
+  <div class="enroll-modal-overlay" (click)="closeEnrollModal()">
+    <div class="enroll-modal" (click)="$event.stopPropagation()">
+      <div class="enroll-modal-header">
+        <h2>Enroll for New Batch</h2>
+        <button class="enroll-modal-close" (click)="closeEnrollModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="enroll-modal-body">
+        <p>Enter your phone number to connect with our enrollment team on WhatsApp</p>
+        <div class="phone-input-container">
+          <label for="phone">Phone Number</label>
+          <input
+            id="phone"
+            type="tel"
+            [(ngModel)]="phoneNumber"
+            placeholder="Enter 10-digit phone number"
+            maxlength="10"
+            (keydown.enter)="enrollNow()"
+            class="phone-input"
+          >
+        </div>
+        <button class="enroll-btn" (click)="enrollNow()">
+          <i class="fab fa-whatsapp"></i> Connect on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+}

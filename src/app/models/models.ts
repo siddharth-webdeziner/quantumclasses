@@ -71,3 +71,13 @@ export interface Toast {
   message: string;
   visible: boolean;
 }
+
+export interface PdfResource {
+  id: number;
+  title: string;
+  description: string;
+  filename: string;
+  path: string;
+  fileSize: string;
+  subject: string;
+}

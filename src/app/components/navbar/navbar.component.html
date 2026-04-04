@@ -1,7 +1,7 @@
 <!-- Announcement Banner -->
 <div class="banner" *ngIf="showBanner">
-  🎉 Board Exams 2025 Preparation Guide now available!
-  <a (click)="toast.show('Checking resources...')"> Start preparing now →</a>
+  🎉 Enroll yourself for the new batch!
+  <a (click)="openEnrollModal()"> Enroll now →</a>
   <button class="banner-close" (click)="showBanner=false"><i class="fas fa-times"></i></button>
 </div>
 
@@ -16,8 +16,8 @@
     <a routerLink="/courses" routerLinkActive="active" (click)="closeMobile()">Courses</a>
     <a href="#teachers" (click)="closeMobile()">Teachers</a>
     <a href="#exams" (click)="closeMobile()">Exams</a>
-    <a href="#app" (click)="closeMobile()">App</a>
-    <a href="javascript:void(0)" (click)="openPdf()" class="pdf-link"><i class="fas fa-file-pdf"></i> Resources</a>
+    <!-- <a href="#app" (click)="closeMobile()">App</a> -->
+    <a routerLink="/resources" routerLinkActive="active" (click)="closeMobile()" class="pdf-link"><i class="fas fa-file-pdf"></i> Resources</a>
     @if (auth.isLoggedIn()) {
       <a routerLink="/dashboard" routerLinkActive="active" (click)="closeMobile()">Dashboard</a>
     }
@@ -37,3 +37,35 @@
     <i class="fas" [class.fa-bars]="!mobileOpen()" [class.fa-times]="mobileOpen()"></i>
   </button>
 </nav>
+
+<!-- Enrollment Modal -->
+@if (showEnrollModal()) {
+  <div class="enroll-modal-overlay" (click)="closeEnrollModal()">
+    <div class="enroll-modal" (click)="$event.stopPropagation()">
+      <div class="enroll-modal-header">
+        <h2>Enroll for New Batch</h2>
+        <button class="enroll-modal-close" (click)="closeEnrollModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="enroll-modal-body">
+        <p>Enter your phone number to connect with our enrollment team on WhatsApp</p>
+        <div class="phone-input-container">
+          <label for="phone">Phone Number</label>
+          <input
+            id="phone"
+            type="tel"
+            [(ngModel)]="phoneNumber"
+            placeholder="Enter 10-digit phone number"
+            maxlength="10"
+            (keydown.enter)="enrollNow()"
+            class="phone-input"
+          >
+        </div>
+        <button class="enroll-btn" (click)="enrollNow()">
+          <i class="fab fa-whatsapp"></i> Connect on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+}

@@ -34,20 +34,6 @@ export class CarouselComponent implements OnInit, OnDestroy {
       color: '#00C2A8',
       image: 'assets/images/slide3.jpeg'
     },
-    {
-      title: 'Learn Anywhere, Anytime',
-      description: 'Access courses on mobile, tablet, or desktop - online or offline',
-      icon: '📱',
-      color: '#FFB800',
-      image: 'assets/images/slide4.jpeg'
-    },
-    {
-      title: '95%+ Pass Rate',
-      description: 'Join 50 lakh+ students achieving excellence in their board exams',
-      icon: '🏆',
-      color: '#FF6B1F',
-      image: 'assets/images/slide5.jpeg'
-    }
   ];
 
   nextSlide() {

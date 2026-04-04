@@ -1,0 +1,57 @@
+<div class="resources-container">
+  <!-- Header Section -->
+  <div class="resources-header">
+    <h1>📚 Study Resources</h1>
+    <p>Access all your study materials, notes, and practice papers in one place</p>
+  </div>
+
+  <!-- Search Box -->
+  <div class="search-section">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        placeholder="Search by title, subject, or description..."
+        class="search-input"
+      >
+    </div>
+    <p class="search-info">{{ filteredPdfs().length }} resource(s) found</p>
+  </div>
+
+  <!-- PDF List -->
+  <div class="pdf-list">
+    @if (filteredPdfs().length > 0) {
+      @for (pdf of filteredPdfs(); track pdf.id) {
+        <div class="pdf-card">
+          <div class="pdf-icon">{{ getSubjectIcon(pdf.subject) }}</div>
+          <div class="pdf-info">
+            <h3 class="pdf-title">{{ pdf.title }}</h3>
+            <p class="pdf-description">{{ pdf.description }}</p>
+            <div class="pdf-meta">
+              <span class="subject-badge">{{ pdf.subject }}</span>
+              <span class="file-size">{{ pdf.fileSize }}</span>
+            </div>
+          </div>
+          <div class="pdf-actions">
+            <button class="btn-view" (click)="openPdf(pdf.path)" title="Open PDF">
+              <i class="fas fa-file-pdf"></i> Open
+            </button>
+            <a [href]="pdf.path" download [attr.data-filename]="pdf.filename" class="btn-download" title="Download PDF">
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+      }
+    } @else {
+      <div class="no-results">
+        <i class="fas fa-search"></i>
+        <h3>No resources found</h3>
+        <p>Try adjusting your search terms</p>
+      </div>
+    }
+  </div>
+</div>
+
+<app-pdf-viewer></app-pdf-viewer>
+<app-footer></app-footer>

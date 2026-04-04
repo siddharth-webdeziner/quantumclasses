@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Course, Teacher, Testimonial, Exam, Feature, LiveClass, EnrolledCourse } from '../models/models';
+import { Course, Teacher, Testimonial, Exam, Feature, LiveClass, EnrolledCourse, PdfResource } from '../models/models';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
@@ -23,12 +23,12 @@ export class DataService {
 
   getTeachers(): Teacher[] {
     return [
-      { name:'Swati Shahi', subject:'Physics', avatar:'👨‍🏫', avatarBg:'rgba(255,79,31,0.15)', rating:5, students:'12M+', qualification:'IIT Grad' },
-      { name:'Siddharth Shahi', subject:'Chemistry', avatar:'⚗️', avatarBg:'rgba(59,130,246,0.15)', rating:5, students:'9M+', qualification:'MSc Chem' },
-      { name:'Dr. Sachin Sir', subject:'Biology', avatar:'👩‍⚕️', avatarBg:'rgba(0,194,168,0.15)', rating:5, students:'11M+', qualification:'MBBS Dr.' },
-      { name:'Sachin Gupta', subject:'Mathematics', avatar:'🧮', avatarBg:'rgba(255,184,0,0.15)', rating:5, students:'14M+', qualification:'IIT Grad' },
-      { name:'Shreya Sharma', subject:'English', avatar:'📖', avatarBg:'rgba(236,72,153,0.15)', rating:5, students:'7M+', qualification:'MA English' },
-      { name:'Vivek Singh', subject:'History & Social Studies', avatar:'👨‍💼', avatarBg:'rgba(139,92,246,0.15)', rating:5, students:'5M+', qualification:'MA History' },
+      { name:'Swati Shahi', subject:'Physics', avatar:'👨‍🏫', avatarBg:'rgba(255,79,31,0.15)', rating:5, students:'12M+', qualification:'Graduate' },
+      { name:'Siddharth Shahi', subject:'Mathematics', avatar:'⚗️', avatarBg:'rgba(59,130,246,0.15)', rating:5, students:'9M+', qualification:'MSc Chem' },
+      // { name:'Dr. Sachin Sir', subject:'Biology', avatar:'👩‍⚕️', avatarBg:'rgba(0,194,168,0.15)', rating:5, students:'11M+', qualification:'MBBS Dr.' },
+      // { name:'Sachin Gupta', subject:'Mathematics', avatar:'🧮', avatarBg:'rgba(255,184,0,0.15)', rating:5, students:'14M+', qualification:'IIT Grad' },
+      // { name:'Shreya Sharma', subject:'English', avatar:'📖', avatarBg:'rgba(236,72,153,0.15)', rating:5, students:'7M+', qualification:'MA English' },
+      // { name:'Vivek Singh', subject:'History & Social Studies', avatar:'👨‍💼', avatarBg:'rgba(139,92,246,0.15)', rating:5, students:'5M+', qualification:'MA History' },
     ];
   }
 
@@ -45,11 +45,11 @@ export class DataService {
       { icon:'📐', name:'Mathematics', count:'120+ Hours' },
       { icon:'⚡', name:'Physics', count:'100+ Hours' },
       { icon:'⚗️', name:'Chemistry', count:'90+ Hours' },
-      { icon:'🧬', name:'Biology', count:'110+ Hours' },
-      { icon:'📖', name:'English', count:'60+ Hours' },
-      { icon:'📜', name:'History', count:'50+ Hours' },
-      { icon:'🌍', name:'Geography', count:'45+ Hours' },
-      { icon:'💰', name:'Economics', count:'55+ Hours' },
+      // { icon:'🧬', name:'Biology', count:'110+ Hours' },
+      // { icon:'📖', name:'English', count:'60+ Hours' },
+      // { icon:'📜', name:'History', count:'50+ Hours' },
+      // { icon:'🌍', name:'Geography', count:'45+ Hours' },
+      // { icon:'💰', name:'Economics', count:'55+ Hours' },
       { icon:'📚', name:'CBSE Boards', count:'500+ Resources' },
       { icon:'🎓', name:'ICSE Boards', count:'400+ Resources' },
     ];
@@ -81,6 +81,20 @@ export class DataService {
       { icon:'⚗️', iconBg:'bg-blue', title:'Chemistry Class 12 – Organic Compounds', progress:'Chapter 6/20', chapter:'Carboxylic Acids', percent:30 },
       { icon:'🧬', iconBg:'bg-teal', title:'Biology Class 12 – Genetics & Evolution', progress:'Chapter 15/18', chapter:'Molecular Basis of Inheritance', percent:83 },
       { icon:'🔢', iconBg:'bg-yellow', title:'Mathematics Class 12 – Calculus', progress:'Chapter 12/24', chapter:'Integration', percent:50 },
+    ];
+  }
+
+  getPdfs(): PdfResource[] {
+    return [
+      { id: 1, title: 'MATHEMATICS (STANDARD) SET 1', description: 'Complete sample paper for mathematics', filename: 'MATHEMATICS_(STANDARD)_SET-1.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-1.pdf', fileSize: '2.5 MB', subject: 'Mathematics' },
+      { id: 2, title: 'MATHEMATICS (STANDARD) SET-1_PART_1', description: 'Complete sample paper for mathematics', filename: 'MATHEMATICS_(STANDARD)_SET-1-1.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-1-1.pdf', fileSize: '2.1 MB', subject: 'Mathematics' },
+      { id: 3, title: 'MATHEMATICS (STANDARD) SET-1_PART_2', description: 'Complete sample paper for mathematics', filename: 'MATHEMATICS_(STANDARD)_SET-1-2.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-1-2.pdf', fileSize: '2.3 MB', subject: 'Mathematics' },
+      { id: 4, title: 'MATHEMATICS_(STANDARD) SET 2', description: 'Complete sample paper for mathematics', filename: 'MATHEMATICS_(STANDARD)_SET-2.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-2.pdf', fileSize: '2.2 MB', subject: 'Mathematics' },
+      { id: 5, title: 'MATHEMATICS (STANDARD) SET-2_PART_1', description: 'Complete sample paper for mathematics', filename: 'MATHEMATICS_(STANDARD)_SET-2-1.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-2-1.pdf', fileSize: '2.4 MB', subject: 'Mathematics' },
+      { id: 6, title: 'MATHEMATICS_(STANDARD)_SET-2_PART_2', description: 'Complete sample paper for mathematics', filename: 'MATHEMATICS_(STANDARD)_SET-2-2.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-2-2.pdf', fileSize: '2.6 MB', subject: 'Mathematics' },
+      { id: 7, title: 'MATHEMATICS (STANDARD) SET-3', description: 'Complete sample paper for mathematics', filename: 'MATHEMATICS_(STANDARD)_SET-3.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-3.pdf', fileSize: '2.5 MB', subject: 'Mathematics' },
+      { id: 8, title: 'MATHEMATICS (STANDARD) SET-3_PART_1', description: 'Standard mathematics course material', filename: 'MATHEMATICS_(STANDARD)_SET-3-1.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-3-1.pdf', fileSize: '3.1 MB', subject: 'Mathematics' },
+      { id: 9, title: 'MATHEMATICS (STANDARD) SET-3_PART_2', description: 'Alternative mathematics problems and solutions', filename: 'MATHEMATICS_(STANDARD)_SET-3-2.pdf', path: 'assets/scienceFiles/MATHEMATICS_(STANDARD)_SET-3-2.pdf', fileSize: '3.3 MB', subject: 'Mathematics' },
     ];
   }
 }
